@@ -1,0 +1,71 @@
+﻿#                       # - Levels should be 25 characters wide, screen is 8 high
+#                       # - everything after that can be ignored
+#    ###                # - and used for comment space.
+#                       #
+#                       # - # is a wall
+#                       # - V is a dropper
+#                       # - $ is a swooper
+#      $$$$$$$$$$$$     # - X is a shooter
+#                       # - " is a sheild powerup
+#                       # - % is an extra life
+#                       # 
+#                       # 
+#                       #
+#     V                 #
+#       V               #
+#         V       V     #
+#               V       #
+#             V         #
+#                       #
+#                       #
+#                       #
+#                       #
+#                       #
+#                       #
+#                       #
+#                       #
+##### ###  ###    ###   #
+####   #     #   ###    #
+#                       #
+#                       #
+#                       #
+#     ##                #
+#          ###          #
+#                       #
+#             ##        #
+#                       #
+#   ####  #   #  #      #
+#   #     #   #  #      #
+#   #     #   #  #      #
+#   ##    #   #  #      #
+#   #     #   #  #      #
+#   #     #   #  #      #
+#   #      ###   ####   #
+#                       #
+#                       #
+#         #####         #
+#         #####         #
+#         #####         #
+#  V       ###          #
+#  V        #           #
+#  VVVV                 #
+#                       #
+#                       #
+#           ######      #
+#   XXXXXXXXXXXXXX      #
+#                       #
+#      #####            #
+#       #               #
+#       #               #
+#       #               #
+#                       #
+#                       #
+#                       #
+#          ##           #
+#      1   ##   2       #
+#                       #
+#                       #
+#                       #
+#                       #
+#                       #
+#                       #

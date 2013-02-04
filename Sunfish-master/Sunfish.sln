@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sunfish.Common", "Sunfish.Common\Sunfish.Common.csproj", "{4EE08C36-596B-47CF-A3E3-50A5792BEBC6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sunfish.ClientAPI", "Sunfish.ClientAPI\Sunfish.ClientAPI.csproj", "{B4DF3505-325C-40F9-8EBD-922611A3E148}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sunfish.Core", "Sunfish.Core\Sunfish.Core.csproj", "{D523B8FB-8171-45A3-BD50-4789310A2D8E}"
+EndProject
+Project("{2857B73E-F847-4B02-9238-064979017E93}") = "Sunfish_Interop", "Sunfish_Interop\Sunfish_Interop.cproj", "{624B52CC-2312-4079-B968-FB52165491A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SunfishDemo", "SunfishDemo\SunfishDemo.csproj", "{7ED99834-CE9F-47FB-8433-5060FC1A6896}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sunfish.Framebuffer", "Sunfish.Framebuffer\Sunfish.Framebuffer.csproj", "{6DD7AB6C-20FF-40F0-B20F-9651E2FB1892}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sunfish.FrameBuffer_Test", "Sunfish.FrameBuffer_Test\Sunfish.FrameBuffer_Test.csproj", "{EE18C728-C1C8-441A-9DBB-B8E878D66AC0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sunfish.Messaging", "Sunfish.Messaging\Sunfish.Messaging.csproj", "{A7C3A1A2-1AEA-4C1F-8B57-D932F0811781}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4EE08C36-596B-47CF-A3E3-50A5792BEBC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EE08C36-596B-47CF-A3E3-50A5792BEBC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EE08C36-596B-47CF-A3E3-50A5792BEBC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EE08C36-596B-47CF-A3E3-50A5792BEBC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{624B52CC-2312-4079-B968-FB52165491A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{624B52CC-2312-4079-B968-FB52165491A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{624B52CC-2312-4079-B968-FB52165491A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{624B52CC-2312-4079-B968-FB52165491A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DD7AB6C-20FF-40F0-B20F-9651E2FB1892}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DD7AB6C-20FF-40F0-B20F-9651E2FB1892}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DD7AB6C-20FF-40F0-B20F-9651E2FB1892}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DD7AB6C-20FF-40F0-B20F-9651E2FB1892}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7ED99834-CE9F-47FB-8433-5060FC1A6896}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7ED99834-CE9F-47FB-8433-5060FC1A6896}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7ED99834-CE9F-47FB-8433-5060FC1A6896}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7ED99834-CE9F-47FB-8433-5060FC1A6896}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7C3A1A2-1AEA-4C1F-8B57-D932F0811781}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7C3A1A2-1AEA-4C1F-8B57-D932F0811781}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7C3A1A2-1AEA-4C1F-8B57-D932F0811781}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7C3A1A2-1AEA-4C1F-8B57-D932F0811781}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4DF3505-325C-40F9-8EBD-922611A3E148}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4DF3505-325C-40F9-8EBD-922611A3E148}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4DF3505-325C-40F9-8EBD-922611A3E148}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4DF3505-325C-40F9-8EBD-922611A3E148}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D523B8FB-8171-45A3-BD50-4789310A2D8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D523B8FB-8171-45A3-BD50-4789310A2D8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D523B8FB-8171-45A3-BD50-4789310A2D8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D523B8FB-8171-45A3-BD50-4789310A2D8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE18C728-C1C8-441A-9DBB-B8E878D66AC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE18C728-C1C8-441A-9DBB-B8E878D66AC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE18C728-C1C8-441A-9DBB-B8E878D66AC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE18C728-C1C8-441A-9DBB-B8E878D66AC0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Sunfish.FrameBuffer_Test\Sunfish.FrameBuffer_Test.csproj
+	EndGlobalSection
+EndGlobal

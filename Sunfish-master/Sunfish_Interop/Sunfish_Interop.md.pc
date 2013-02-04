@@ -1,0 +1,5 @@
+Name: Sunfish_Interop
+Description: 
+Version: 0.1
+Libs: -L"/home/longjoel/projects/Sunfish/Sunfish.Out" -lSunfish_Interop
+Cflags: -I"/home/longjoel/projects/Sunfish/Sunfish_Interop"

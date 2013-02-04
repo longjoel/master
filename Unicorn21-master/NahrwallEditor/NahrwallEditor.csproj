@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{600BD73F-47A9-44AB-B5CC-F2A250CD8BE3}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NahrwallEditor</RootNamespace>
+    <AssemblyName>NahrwallEditor</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="OpenTK, Version=1.0.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\OpenTK.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK.GLControl, Version=1.0.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Dependencies\OpenTK.GLControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppGlobals.cs" />
+    <Compile Include="custControls\ctrlTextureAttribute.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="custControls\ctrlTextureAttribute.Designer.cs">
+      <DependentUpon>ctrlTextureAttribute.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmResourceManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmResourceManager.Designer.cs">
+      <DependentUpon>FrmResourceManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTextureManipulator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTextureManipulator.Designer.cs">
+      <DependentUpon>FrmTextureManipulator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmXMLWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmXMLWindow.Designer.cs">
+      <DependentUpon>frmXMLWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="custControls\ctrlTextureAttribute.resx">
+      <DependentUpon>ctrlTextureAttribute.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMain.resx">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmResourceManager.resx">
+      <DependentUpon>FrmResourceManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTextureManipulator.resx">
+      <DependentUpon>FrmTextureManipulator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmXMLWindow.resx">
+      <DependentUpon>frmXMLWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Unicorn21.GameObjects\Unicorn21.GameObjects.csproj">
+      <Project>{245EEFB0-2545-4B62-B31F-3809912667AE}</Project>
+      <Name>Unicorn21.GameObjects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Unicorn21.Geometry\Unicorn21.Geometry.csproj">
+      <Project>{8C6D852A-C5C9-4D9F-B7DB-9BADD1B897B1}</Project>
+      <Name>Unicorn21.Geometry</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Unicorn21.OpenTKRenderer\Unicorn21.OpenTKRenderer.csproj">
+      <Project>{54A1BEF7-9558-43B1-94D3-9D02AE894947}</Project>
+      <Name>Unicorn21.OpenTKRenderer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

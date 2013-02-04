@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Emukore.NullImplementation", "Emukore.NullImplementation\Emukore.NullImplementation.vcxproj", "{6565DDA8-F6B4-4F62-9BB7-DB0008EFD14E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "clrEmukore", "clrEmukore\clrEmukore.csproj", "{3470A863-7053-4C13-A86D-89B75B3921C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "clrEmukoreDiagnostics", "clrEmukoreDiagnostics\clrEmukoreDiagnostics.csproj", "{9C6F0D4D-3AE9-47B7-A966-0047FD1F18DE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|Win32 = Debug|Win32
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|Win32 = Release|Win32
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6565DDA8-F6B4-4F62-9BB7-DB0008EFD14E}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{6565DDA8-F6B4-4F62-9BB7-DB0008EFD14E}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{6565DDA8-F6B4-4F62-9BB7-DB0008EFD14E}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{6565DDA8-F6B4-4F62-9BB7-DB0008EFD14E}.Debug|Win32.ActiveCfg = Debug|Win32
+		{6565DDA8-F6B4-4F62-9BB7-DB0008EFD14E}.Debug|Win32.Build.0 = Debug|Win32
+		{6565DDA8-F6B4-4F62-9BB7-DB0008EFD14E}.Debug|x86.ActiveCfg = Debug|Win32
+		{6565DDA8-F6B4-4F62-9BB7-DB0008EFD14E}.Release|Any CPU.ActiveCfg = Release|Win32
+		{6565DDA8-F6B4-4F62-9BB7-DB0008EFD14E}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{6565DDA8-F6B4-4F62-9BB7-DB0008EFD14E}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{6565DDA8-F6B4-4F62-9BB7-DB0008EFD14E}.Release|Win32.ActiveCfg = Release|Win32
+		{6565DDA8-F6B4-4F62-9BB7-DB0008EFD14E}.Release|Win32.Build.0 = Release|Win32
+		{6565DDA8-F6B4-4F62-9BB7-DB0008EFD14E}.Release|x86.ActiveCfg = Release|Win32
+		{3470A863-7053-4C13-A86D-89B75B3921C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3470A863-7053-4C13-A86D-89B75B3921C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3470A863-7053-4C13-A86D-89B75B3921C0}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{3470A863-7053-4C13-A86D-89B75B3921C0}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{3470A863-7053-4C13-A86D-89B75B3921C0}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{3470A863-7053-4C13-A86D-89B75B3921C0}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3470A863-7053-4C13-A86D-89B75B3921C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3470A863-7053-4C13-A86D-89B75B3921C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3470A863-7053-4C13-A86D-89B75B3921C0}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{3470A863-7053-4C13-A86D-89B75B3921C0}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{3470A863-7053-4C13-A86D-89B75B3921C0}.Release|Win32.ActiveCfg = Release|Any CPU
+		{3470A863-7053-4C13-A86D-89B75B3921C0}.Release|x86.ActiveCfg = Release|Any CPU
+		{9C6F0D4D-3AE9-47B7-A966-0047FD1F18DE}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{9C6F0D4D-3AE9-47B7-A966-0047FD1F18DE}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{9C6F0D4D-3AE9-47B7-A966-0047FD1F18DE}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{9C6F0D4D-3AE9-47B7-A966-0047FD1F18DE}.Debug|Win32.ActiveCfg = Debug|x86
+		{9C6F0D4D-3AE9-47B7-A966-0047FD1F18DE}.Debug|x86.ActiveCfg = Debug|x86
+		{9C6F0D4D-3AE9-47B7-A966-0047FD1F18DE}.Debug|x86.Build.0 = Debug|x86
+		{9C6F0D4D-3AE9-47B7-A966-0047FD1F18DE}.Release|Any CPU.ActiveCfg = Release|x86
+		{9C6F0D4D-3AE9-47B7-A966-0047FD1F18DE}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{9C6F0D4D-3AE9-47B7-A966-0047FD1F18DE}.Release|Mixed Platforms.Build.0 = Release|x86
+		{9C6F0D4D-3AE9-47B7-A966-0047FD1F18DE}.Release|Win32.ActiveCfg = Release|x86
+		{9C6F0D4D-3AE9-47B7-A966-0047FD1F18DE}.Release|x86.ActiveCfg = Release|x86
+		{9C6F0D4D-3AE9-47B7-A966-0047FD1F18DE}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

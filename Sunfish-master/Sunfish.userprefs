@@ -1,0 +1,35 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Sunfish.Messaging/Messages/TestMessage.cs">
+    <Files>
+      <File FileName="Sunfish.Messaging/Message.cs" Line="2" Column="1" />
+      <File FileName="Sunfish.Messaging/MessageHub.cs" Line="23" Column="3" />
+      <File FileName="Sunfish.FrameBuffer_Test/Program.cs" Line="25" Column="39" />
+      <File FileName="Sunfish.Messaging/Messages/TestMessage.cs" Line="8" Column="16" />
+      <File FileName="Sunfish.Framebuffer/FrameBuffer.cs" Line="67" Column="3" />
+      <File FileName="Sunfish.Framebuffer/Keyboard.cs" Line="32" Column="47" />
+      <File FileName="Sunfish.Common/Encoding.cs" Line="19" Column="2" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="Sunfish.Common" expanded="True" />
+          <Node name="Sunfish.Framebuffer" expanded="True" />
+          <Node name="Sunfish.FrameBuffer_Test" expanded="True">
+            <Node name="References" expanded="True" />
+          </Node>
+          <Node name="Sunfish.Messaging" expanded="True">
+            <Node name="References" expanded="True" />
+            <Node name="Messages" expanded="True">
+              <Node name="TestMessage.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

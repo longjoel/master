@@ -1,0 +1,72 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="HotScramble.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="RomPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:\ROMS\NES</Value>
+    </Setting>
+    <Setting Name="RomFilter" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">*.NES</Value>
+    </Setting>
+    <Setting Name="EmuPath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:\Emulator\FCEUX\fceux.exe</Value>
+    </Setting>
+    <Setting Name="Parameters" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">%rom</Value>
+    </Setting>
+    <Setting Name="WindowWidth" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1600</Value>
+    </Setting>
+    <Setting Name="WindowHeight" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">900</Value>
+    </Setting>
+    <Setting Name="KillKey" Type="System.Windows.Forms.Keys" Scope="Application">
+      <Value Profile="(Default)">Q</Value>
+    </Setting>
+    <Setting Name="NextKey" Type="System.Windows.Forms.Keys" Scope="Application">
+      <Value Profile="(Default)">Down</Value>
+    </Setting>
+    <Setting Name="PrevKey" Type="System.Windows.Forms.Keys" Scope="Application">
+      <Value Profile="(Default)">Up</Value>
+    </Setting>
+    <Setting Name="NextPageKey" Type="System.Windows.Forms.Keys" Scope="Application">
+      <Value Profile="(Default)">Right</Value>
+    </Setting>
+    <Setting Name="PrevPageKey" Type="System.Windows.Forms.Keys" Scope="Application">
+      <Value Profile="(Default)">Left</Value>
+    </Setting>
+    <Setting Name="SelectKey" Type="System.Windows.Forms.Keys" Scope="Application">
+      <Value Profile="(Default)">Space</Value>
+    </Setting>
+    <Setting Name="QuitKey" Type="System.Windows.Forms.Keys" Scope="Application">
+      <Value Profile="(Default)">Escape</Value>
+    </Setting>
+    <Setting Name="CyclePageKey" Type="System.Windows.Forms.Keys" Scope="Application">
+      <Value Profile="(Default)">Tab</Value>
+    </Setting>
+    <Setting Name="NextGamePad" Type="Tricycle.DPadValues" Scope="Application">
+      <Value Profile="(Default)">Down</Value>
+    </Setting>
+    <Setting Name="PrevGamePad" Type="Tricycle.DPadValues" Scope="Application">
+      <Value Profile="(Default)">Up</Value>
+    </Setting>
+    <Setting Name="NextPageGamepad" Type="Tricycle.DPadValues" Scope="Application">
+      <Value Profile="(Default)">Right</Value>
+    </Setting>
+    <Setting Name="PrevPageGamepad" Type="Tricycle.DPadValues" Scope="Application">
+      <Value Profile="(Default)">Left</Value>
+    </Setting>
+    <Setting Name="KillGamepadCombo" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">1,2,8,9</Value>
+    </Setting>
+    <Setting Name="SelectGamepadCombo" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="QuitGamepadCombo" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">8,9</Value>
+    </Setting>
+    <Setting Name="CyclePageGamepadCombo" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">8</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
