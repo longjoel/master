@@ -32,128 +32,140 @@ using System.Runtime.InteropServices;
 
 namespace Sunfish.Framebuffer
 {
-	/// <summary>
-	/// Mouse.
-	/// </summary>
-	public class Mouse
-	{
-		[DllImport("libSunfish_Interop.so")]
-		static extern void sunfish_poll_mouse_state(out int mouseX, out int mouseY, out int buttons);
+    /// <summary>
+    /// Mouse.
+    /// </summary>
+    public class Mouse
+    {
+
+        [DllImport("SDL.DLL")]
+        public static extern byte SDL_GetMouseState(out int x, out int y);
 
 
-		[DllImport("libSunfish_Interop.so")]
-		static extern void sunfish_warp_mouse( int mouseX, int mouseY);
+        [DllImport("SDL.DLL")]
+        public static extern void SDL_WarpMouse(short x, short y);
 
-		internal Mouse ()
-		{
-		}
+        [DllImport("SDL.DLL")]
+        public static extern int SDL_ShowCursor(int toggle);
 
-	
-		/// <summary>
-		/// Gets the x.
-		/// </summary>
-		/// <value>
-		/// The x.
-		/// </value>
-		public int X {
-			get 
-			{
-				int x,y,buttons;
-
-				sunfish_poll_mouse_state(out x, out y, out buttons);
-
-				return x;
-			}
-		}
-
-		/// <summary>
-		/// Gets the y.
-		/// </summary>
-		/// <value>
-		/// The y.
-		/// </value>
-		public int Y {
-			get 
-			{
-				int x,y,buttons;
-
-				sunfish_poll_mouse_state(out x, out y, out buttons);
-
-				return y;
-			}
-		}
+        internal Mouse()
+        {
+            SDL_ShowCursor(0);
+        }
 
 
-		/// <summary>
-		/// Gets a value indicating whether this <see cref="Sunfish.Framebuffer.Mouse"/> left button.
-		/// </summary>
-		/// <value>
-		/// <c>true</c> if left button; otherwise, <c>false</c>.
-		/// </value>
-		public bool LeftButton
-		{
-			get
-			{				
-				int x,y,buttons;
+        /// <summary>
+        /// Gets the x.
+        /// </summary>
+        /// <value>
+        /// The x.
+        /// </value>
+        public int X
+        {
+            get
+            {
+                int x, y;
 
-				sunfish_poll_mouse_state(out x, out y, out buttons);
+                SDL_GetMouseState(out x, out y);
 
-				return ((buttons&1) == 1);
-			}
-		}
+                return x;
+            }
+        }
 
-		/// <summary>
-		/// Gets a value indicating whether this <see cref="Sunfish.Framebuffer.Mouse"/> right button.
-		/// </summary>
-		/// <value>
-		/// <c>true</c> if right button; otherwise, <c>false</c>.
-		/// </value>
-		public bool RightButton
-		{
-			get
-			{				
-				int x,y,buttons;
+        /// <summary>
+        /// Gets the y.
+        /// </summary>
+        /// <value>
+        /// The y.
+        /// </value>
+        public int Y
+        {
+            get
+            {
+                int x, y;
 
-				sunfish_poll_mouse_state(out x, out y, out buttons);
+                SDL_GetMouseState(out x, out y);
 
-				return ((buttons&4) == 4);
-			}
-		}
+                //sunfish_poll_mouse_state(out x, out y, out buttons);
 
-		/// <summary>
-		/// Gets a value indicating whether this <see cref="Sunfish.Framebuffer.Mouse"/> middle button.
-		/// </summary>
-		/// <value>
-		/// <c>true</c> if middle button; otherwise, <c>false</c>.
-		/// </value>
-		public bool MiddleButton
-		{
-			get
-			{				
-				int x,y,buttons;
-
-				sunfish_poll_mouse_state(out x, out y, out buttons);
-
-				return ((buttons&2) == 2);
-			}
-		}
+                return y;
+            }
+        }
 
 
+        /// <summary>
+        /// Gets a value indicating whether this <see cref="Sunfish.Framebuffer.Mouse"/> left button.
+        /// </summary>
+        /// <value>
+        /// <c>true</c> if left button; otherwise, <c>false</c>.
+        /// </value>
+        public bool LeftButton
+        {
+            get
+            {
+                int x, y, buttons;
 
-		/// <summary>
-		/// Moves to.
-		/// </summary>
-		/// <param name='x'>
-		/// X.
-		/// </param>
-		/// <param name='y'>
-		/// Y.
-		/// </param>
-		public void MoveTo (int x, int y)
-		{
-			sunfish_warp_mouse(x,y);
-		}
-		
-	}
+                //sunfish_poll_mouse_state(out x, out y, out buttons);
+                buttons = (int)SDL_GetMouseState(out x, out y);
+                return ((buttons & 1) == 1);
+            }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether this <see cref="Sunfish.Framebuffer.Mouse"/> right button.
+        /// </summary>
+        /// <value>
+        /// <c>true</c> if right button; otherwise, <c>false</c>.
+        /// </value>
+        public bool RightButton
+        {
+            get
+            {
+                int x, y, buttons;
+
+                buttons = (int)SDL_GetMouseState(out x, out y);
+                //sunfish_poll_mouse_state(out x, out y, out buttons);
+
+                return ((buttons & 4) == 4);
+            }
+        }
+
+        /// <summary>
+        /// Gets a value indicating whether this <see cref="Sunfish.Framebuffer.Mouse"/> middle button.
+        /// </summary>
+        /// <value>
+        /// <c>true</c> if middle button; otherwise, <c>false</c>.
+        /// </value>
+        public bool MiddleButton
+        {
+            get
+            {
+                int x, y, buttons;
+
+                buttons = (int)SDL_GetMouseState(out x, out y);
+                //sunfish_poll_mouse_state(out x, out y, out buttons);
+
+                return ((buttons & 2) == 2);
+            }
+        }
+
+
+
+        /// <summary>
+        /// Moves to.
+        /// </summary>
+        /// <param name='x'>
+        /// X.
+        /// </param>
+        /// <param name='y'>
+        /// Y.
+        /// </param>
+        public void MoveTo(int x, int y)
+        {
+            SDL_WarpMouse((short)x, (short)y);
+            //sunfish_warp_mouse(x,y);
+        }
+
+    }
 }
 

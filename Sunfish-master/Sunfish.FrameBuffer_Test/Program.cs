@@ -35,7 +35,7 @@ using System.Drawing.Drawing2D;
 using Sunfish.Framebuffer;
 
 using Sunfish.Common;
-using Sunfish.Messaging;
+
 
 namespace Sunfish.FrameBuffer_Test
 {
@@ -43,48 +43,22 @@ namespace Sunfish.FrameBuffer_Test
 	{
 		public static void Main ()
 		{
-			var f = new FrameBuffer (640, 480);
-			
-			int sizeRect = 5;
+            var f = new FrameBuffer(640, 480);
 
-			var messageQueue = new MessageHub ("xxbasexx");
+            while (true)
+            {
+                f.Context.Clear(Color.Black);
 
-			bool messageRecieved = false;
+                f.Context.DrawString(DateTime.Now.ToLongTimeString(), 
+                    new Font(FontFamily.GenericMonospace, 12, FontStyle.Bold),
+                    Brushes.White, 0, 0);
 
-			messageQueue.RegisterRoute (typeof(TestMessage), (m) => {
-				messageRecieved = !messageRecieved;});
+                f.SwapBuffers();
 
-
-			while (true) {
-
-				if (messageRecieved)
-					f.Context.Clear (Color.White);
-				else
-					f.Context.Clear (Color.Bisque);
-
-				f.Context.DrawString ("Hello!", SystemFonts.DefaultFont, new SolidBrush (Color.Red), 20, 20);
-
-				f.Context.DrawRectangle (Pens.Black, new Rectangle (f.Mouse.X, f.Mouse.Y, sizeRect, sizeRect));
-
-				if (f.Keyboard [Keys.a]) {
-					MessageHub.SendMessage("xxbasexx", new TestMessage());
-				}
-
-				f.SwapBuffers ();
-
-				f.DoEvents ();
-
-
-				var m = messageQueue.PollMessage();
-				if(m != null)
-					messageQueue.DispatchMessage(m);
-
-
-			}
-
+                f.DoEvents();
+            }
+         
 		}
-
 	}
-
 }
 

@@ -32,131 +32,176 @@ using System.Runtime.InteropServices;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 
+
+
 namespace Sunfish.Framebuffer
 {
-	/// <summary>
-	/// Frame buffer.
-	/// </summary>
-	public class FrameBuffer
-	{
+    /// <summary>
+    /// Frame buffer.
+    /// </summary>
+    public class FrameBuffer
+    {
 
-		[DllImport("libSunfish_Interop.so")]
-		static extern IntPtr sunfish_init_video (int width, int height);
+        [DllImport("msvcrt.dll", EntryPoint = "memcpy", CallingConvention = CallingConvention.Cdecl, SetLastError = false)]
+        public static extern IntPtr memcpy(IntPtr dest, IntPtr src, UIntPtr count);
 
-		[DllImport("libSunfish_Interop.so")]
-		static extern void sunfish_swap_buffers (IntPtr screen);
+        [DllImport("SDL.DLL")]
+        private static extern int SDL_Init(int flags);
 
-		[DllImport("libSunfish_Interop.so")]
-		static extern IntPtr sunfish_decode_videoptr (IntPtr screen);
+        [DllImport("SDL.DLL")]
+        public static extern IntPtr SDL_SetVideoMode(int width, int height, int bpp, int flags);
 
-		[DllImport("libSunfish_Interop.so")]
-		static extern void sunfish_poll_events ();
+        [DllImport("SDL.DLL")]
+        public static extern int SDL_Flip(IntPtr screen);
 
+        [DllImport("SDL.DLL")]
+        public static extern int SDL_PollEvent(out SDL_Event sdlEvent);
 
+        [StructLayout(LayoutKind.Sequential, Pack = 4)]
+        public struct SDL_Surface
+        {
+            public int Flags;
+            public IntPtr Format;
+            public int Width;
+            public int Height;
+            public short Pitch;
+            public IntPtr Pixels;
+            public int Offset;
+            public IntPtr Hwdata;
+            public IntPtr ClipRect;
+            public int Unused1;
+            public int Locked;
+            public IntPtr Map;
+            public int FormatVersion;
+            public int RefCount;
+        }
 
-		[DllImport ("libc.so.6")]
-		public static extern IntPtr memcpy (IntPtr dest, IntPtr src, UIntPtr count);
+        [StructLayout(LayoutKind.Explicit)]
+        public struct SDL_Event
+        {          
+            [FieldOffset(0)]
+            public byte type;
+           
+            [FieldOffset(0)]
+            public IntPtr active;
+            
+            [FieldOffset(0)]
+            public IntPtr key;
+          
+            [FieldOffset(0)]
+            public IntPtr motion;
+            
+            [FieldOffset(0)]
+            public IntPtr button;
+           
+        }
 
-		IntPtr _sdlSurface;
-		IntPtr _pixelAddress;
-		Bitmap _backbuffer;
-		private Graphics _context;
+        IntPtr _sdlSurface;
+        IntPtr _pixelAddress;
+        Bitmap _backbuffer;
+        private Graphics _context;
 
+        /// <summary>
+        /// Gets the width.
+        /// </summary>
+        /// <value>
+        /// The width.
+        /// </value>
+        public int Width { get; private set; }
 
-		/// <summary>
-		/// Gets the width.
-		/// </summary>
-		/// <value>
-		/// The width.
-		/// </value>
-		public int Width{ get; private set; }
+        /// <summary>
+        /// Gets the height.
+        /// </summary>
+        /// <value>
+        /// The height.
+        /// </value>
+        public int Height { get; private set; }
 
-		/// <summary>
-		/// Gets the height.
-		/// </summary>
-		/// <value>
-		/// The height.
-		/// </value>
-		public int Height { get; private set; }
+        /// <summary>
+        /// Gets the mouse.
+        /// </summary>
+        /// <value>
+        /// The mouse.
+        /// </value>
+        public Mouse Mouse { get; private set; }
 
-		/// <summary>
-		/// Gets the mouse.
-		/// </summary>
-		/// <value>
-		/// The mouse.
-		/// </value>
-		public Mouse Mouse{ get; private set; }
+        /// <summary>
+        /// Gets the keyboard.
+        /// </summary>
+        /// <value>
+        /// The keyboard.
+        /// </value>
+        public Keyboard Keyboard { get; private set; }
 
-		/// <summary>
-		/// Gets the keyboard.
-		/// </summary>
-		/// <value>
-		/// The keyboard.
-		/// </value>
-		public Keyboard Keyboard { get; private set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Sunfish.Framebuffer.FrameBuffer"/> class.
+        /// </summary>
+        /// <param name='width'>
+        /// Width.
+        /// </param>
+        /// <param name='height'>
+        /// Height.
+        /// </param>
+        public FrameBuffer(int width, int height)
+        {
+            SDL_Init(0x20); // init video
 
-		/// <summary>
-		/// Initializes a new instance of the <see cref="Sunfish.Framebuffer.FrameBuffer"/> class.
-		/// </summary>
-		/// <param name='width'>
-		/// Width.
-		/// </param>
-		/// <param name='height'>
-		/// Height.
-		/// </param>
-		public FrameBuffer (int width, int height)
-		{
-
-			_sdlSurface = sunfish_init_video (width, height);
-			_pixelAddress = sunfish_decode_videoptr (_sdlSurface);
-			_backbuffer = new Bitmap (width, height, System.Drawing.Imaging.PixelFormat.Format32bppRgb);
-
-			Width = width;
-			Height = height;
-
-			Mouse = new Mouse();
-			Keyboard = new Keyboard();
-		}
-
-		/// <summary>
-		/// Gets the context.
-		/// </summary>
-		/// <value>
-		/// The context.
-		/// </value>
-		public Graphics Context {
-			get {
-				if(_context == null)
-					_context = Graphics.FromImage(_backbuffer);
-
-				return _context;
-			}
-		}
-
-
-		/// <summary>
-		/// Swaps the buffers.
-		/// </summary>
-		public void SwapBuffers ()
-		{
-			var bd = _backbuffer.LockBits (new Rectangle (0, 0, Width, Height), System.Drawing.Imaging.ImageLockMode.ReadOnly, System.Drawing.Imaging.PixelFormat.Format32bppRgb);
-
-			memcpy (_pixelAddress, bd.Scan0, new UIntPtr ((ulong)(Width * Height * 4)));
-
-			_backbuffer.UnlockBits (bd);
-
-			sunfish_swap_buffers (_sdlSurface);
-		}
-
-		/// <summary>
-		/// Dos the events.
-		/// </summary>
-		public void DoEvents ()
-		{
-			sunfish_poll_events();
-		}
+            _sdlSurface = SDL_SetVideoMode(width, height, 32, 0X40000000); // create a double buffered software surface
 
 
-	}
+
+            _pixelAddress = ((SDL_Surface)Marshal.PtrToStructure(_sdlSurface, typeof(SDL_Surface))).Pixels;
+            _backbuffer = new Bitmap(width, height, System.Drawing.Imaging.PixelFormat.Format32bppRgb);
+
+            Width = width;
+            Height = height;
+
+            Mouse = new Mouse();
+            Keyboard = new Keyboard();
+        }
+
+        /// <summary>
+        /// Gets the context.
+        /// </summary>
+        /// <value>
+        /// The context.
+        /// </value>
+        public Graphics Context
+        {
+            get
+            {
+                if (_context == null)
+                    _context = Graphics.FromImage(_backbuffer);
+
+                return _context;
+            }
+        }
+
+
+        /// <summary>
+        /// Swaps the buffers.
+        /// </summary>
+        public void SwapBuffers()
+        {
+            var bd = _backbuffer.LockBits(new Rectangle(0, 0, Width, Height), System.Drawing.Imaging.ImageLockMode.ReadOnly, System.Drawing.Imaging.PixelFormat.Format32bppRgb);
+
+            memcpy(_pixelAddress, bd.Scan0, new UIntPtr((ulong)(Width * Height * 4)));
+
+            _backbuffer.UnlockBits(bd);
+
+            SDL_Flip(_sdlSurface);
+        }
+
+        /// <summary>
+        /// Dos the events.
+        /// </summary>
+        public void DoEvents()
+        {
+            SDL_Event e;
+            SDL_PollEvent(out e);
+        }
+
+
+    }
 }
 

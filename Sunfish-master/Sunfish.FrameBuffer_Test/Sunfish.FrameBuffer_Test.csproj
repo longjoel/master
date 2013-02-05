@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -6,7 +6,7 @@
     <ProductVersion>10.0.0</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{EE18C728-C1C8-441A-9DBB-B8E878D66AC0}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <RootNamespace>Sunfish.FrameBuffer_Test</RootNamespace>
     <AssemblyName>Sunfish.FrameBuffer_Test</AssemblyName>
   </PropertyGroup>
@@ -19,6 +19,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>none</DebugType>
@@ -27,6 +28,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -41,10 +45,6 @@
     <ProjectReference Include="..\Sunfish.Common\Sunfish.Common.csproj">
       <Project>{4EE08C36-596B-47CF-A3E3-50A5792BEBC6}</Project>
       <Name>Sunfish.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Sunfish.Messaging\Sunfish.Messaging.csproj">
-      <Project>{A7C3A1A2-1AEA-4C1F-8B57-D932F0811781}</Project>
-      <Name>Sunfish.Messaging</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
