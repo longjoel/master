@@ -39,26 +39,58 @@ using Sunfish.Common;
 
 namespace Sunfish.FrameBuffer_Test
 {
-	public class Program
-	{
-		public static void Main ()
-		{
-            var f = new FrameBuffer(640, 480);
+    public class Program
+    {
+        public static void Main()
+        {
+            var frameBuffer = new FrameBuffer(640, 480);
+            var clockFont = new Font(FontFamily.GenericMonospace, 72, FontStyle.Bold);
+            var backgroundBrush = new LinearGradientBrush(new Point(0, 0), new Point(0, 480), Color.Black, Color.White);
+            var foregroundBrush = new LinearGradientBrush(new Point(0, 280), new Point(0, 360), Color.White, Color.FromArgb(120, Color.Black));
+
+            var px = new Pen(
+                new LinearGradientBrush(new Point(0, 0), new Point(640, 480), Color.FromArgb(128, Color.PeachPuff),
+                    Color.FromArgb(128, Color.DarkGreen)
+                    ), 40.0f);
+
 
             while (true)
             {
-                f.Context.Clear(Color.Black);
+                frameBuffer.Context.Clear(Color.Black);
 
-                f.Context.DrawString(DateTime.Now.ToLongTimeString(), 
-                    new Font(FontFamily.GenericMonospace, 12, FontStyle.Bold),
-                    Brushes.White, 0, 0);
+                frameBuffer.Context.FillRectangle(backgroundBrush,
+                    new Rectangle(0, 0, 640, 480));
 
-                f.SwapBuffers();
+                var time = DateTime.Now;
 
-                f.DoEvents();
+                var tSeconds = ((float)time.Second / 60.0f) * 360.0f - 90.0f;
+
+                var tMSeconds = ((float)time.Millisecond / 1000.0f) * 360.0f;
+
+
+                frameBuffer.Context.DrawArc(px,
+                  new Rectangle(100, 15, 460, 450), tSeconds - 10.0f, 15.0f);
+
+                frameBuffer.Context.DrawArc(px,
+                   new Rectangle(100, 15, 460, 450), tMSeconds + tSeconds, 360.0f - 180.0f);
+
+                frameBuffer.Context.DrawString(time.ToLongTimeString(),
+                    clockFont,
+                    foregroundBrush,
+                   frameBuffer.Width / 2 - frameBuffer.Context.MeasureString(time.ToLongTimeString(), clockFont).Width / 2,
+                frameBuffer.Height / 2 - clockFont.Height / 2);
+
+
+
+
+
+
+                frameBuffer.SwapBuffers();
+
+                frameBuffer.DoEvents();
             }
-         
-		}
-	}
+
+        }
+    }
 }
 
