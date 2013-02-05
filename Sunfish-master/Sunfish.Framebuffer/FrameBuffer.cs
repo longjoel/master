@@ -42,22 +42,22 @@ namespace Sunfish.Framebuffer
     public class FrameBuffer
     {
 
-        [DllImport("msvcrt.dll", EntryPoint = "memcpy", CallingConvention = CallingConvention.Cdecl, SetLastError = false)]
+        [DllImport("msvcrt", EntryPoint = "memcpy", CallingConvention = CallingConvention.Cdecl, SetLastError = false)]
         public static extern IntPtr memcpy(IntPtr dest, IntPtr src, UIntPtr count);
 
-        [DllImport("SDL.DLL")]
+        [DllImport("SDL")]
         private static extern int SDL_Init(int flags);
 
-        [DllImport("SDL.DLL")]
+        [DllImport("SDL")]
         public static extern IntPtr SDL_SetVideoMode(int width, int height, int bpp, int flags);
 
-        [DllImport("SDL.DLL")]
+        [DllImport("SDL")]
         public static extern int SDL_Flip(IntPtr screen);
 
-        [DllImport("SDL.DLL")]
+        [DllImport("SDL")]
         public static extern int SDL_PollEvent(out SDL_Event sdlEvent);
 
-        [StructLayout(LayoutKind.Sequential, Pack = 4)]
+        [StructLayout(LayoutKind.Sequential, Size=60)]
         public struct SDL_Surface
         {
             public int Flags;

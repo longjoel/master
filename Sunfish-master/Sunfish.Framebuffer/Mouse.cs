@@ -38,14 +38,14 @@ namespace Sunfish.Framebuffer
     public class Mouse
     {
 
-        [DllImport("SDL.DLL")]
+        [DllImport("SDL")]
         public static extern byte SDL_GetMouseState(out int x, out int y);
 
 
-        [DllImport("SDL.DLL")]
+        [DllImport("SDL")]
         public static extern void SDL_WarpMouse(short x, short y);
 
-        [DllImport("SDL.DLL")]
+        [DllImport("SDL")]
         public static extern int SDL_ShowCursor(int toggle);
 
         internal Mouse()

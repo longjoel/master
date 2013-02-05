@@ -40,7 +40,7 @@ namespace Sunfish.Framebuffer
 	public class Keyboard
 	{
 
-        [DllImport("SDL.DLL")]
+        [DllImport("SDL")]
         private static extern IntPtr SDL_GetKeyState(out int numkeys);
 
 		//[DllImport("libSunfish_Interop.so")]
